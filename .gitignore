@@ -1,0 +1,12 @@
+# JetBrains IDE
+/.idea
+!/.idea/runConfigurations/
+
+# Kotlin
+/.kotlin
+
+# Build files
+/build
+
+# Gradle
+/.gradle

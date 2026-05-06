@@ -1,4 +1,4 @@
-name: GitHub Classroom Workflow
+name: Autograding
 
 on:
     push:
@@ -43,42 +43,38 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-gradle-
 
-            # W1: References extraction (5 pts)
-            - name: W1 - References extraction
+            - name: References extraction
               id: w1
               uses: classroom-resources/autograding-command-grader@v1
               with:
-                  test-name: W1 - References extraction (5 pts)
-                  command: ./gradlew testW1
+                  test-name: References extraction
+                  command: ./gradlew test --tests ReferencesTest
                   max-score: 5
                   timeout: 15
 
-            # W2: Single-threaded search (6 pts)
-            - name: W2 - Single-threaded search
+            - name: Single-threaded search
               id: w2
               uses: classroom-resources/autograding-command-grader@v1
               with:
-                  test-name: W2 - Single-threaded search (6 pts)
-                  command: ./gradlew testW2
+                  test-name: Single-threaded search
+                  command: ./gradlew test --tests SearchSingleThreadedTest
                   max-score: 6
                   timeout: 15
 
-            # W3: Multi-threaded search (8 pts)
-            - name: W3 - Multi-threaded search
+            - name: Multi-threaded search
               id: w3
               uses: classroom-resources/autograding-command-grader@v1
               with:
-                  test-name: W3 - Multi-threaded search (8 pts)
-                  command: ./gradlew testW3
+                  test-name: Multi-threaded search
+                  command: ./gradlew test --tests SearchMultiThreadedTest
                   max-score: 8
                   timeout: 15
 
-            # CLI: Command-line interface (2 pts)
-            - name: CLI - Command-line interface
+            - name: Command-line interface
               id: cli
               uses: classroom-resources/autograding-command-grader@v1
               with:
-                  test-name: CLI - Command-line interface (2 pts)
+                  test-name: Command-line interface
                   command: ./gradlew testCli
                   max-score: 2
                   timeout: 15
